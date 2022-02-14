@@ -100,9 +100,9 @@ class Array
 end
 
 
-a = [5, 3, 6, 2, 44, 3] 
+# a = [5, 3, 6, 2, 44, 3] 
 
-p a.bubble_sort
+# a.bubble_sort
 
 # ### Substrings and Subwords
 #
@@ -118,17 +118,31 @@ p a.bubble_sort
 # words).
 
 def substrings(string)
-  
+  arr = []
+  (0...string.length).each do |start|
+    (start...string.length).each do |nd|
+      arr << string[start..nd]
+    end
+  end
+  arr
 end
 
 def subwords(word, dictionary)
+  arr = substrings(word)
+  arr.select { |substring| dictionary.include?(substring)}
+
 end
+
+p subwords('cat', ['cat', 'dog'])
+
+psubstrings("cat") #["c", "ca", "cat", "a", "at","t"]
 
 # ### Doubler
 # Write a `doubler` method that takes an array of integers and returns an
 # array with the original elements multiplied by two.
 
 def doubler(array)
+  array.map { |el| el * 2}
 end
 
 # ### My Each
