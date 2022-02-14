@@ -71,7 +71,7 @@ class Array
 
         args.each do |arg| 
             arg.each.with_index do |ele, el_i|
-                arr[el_i][i] = ele
+                arr[el_i][i] = ele if el_i < self.length
             end
             i += 1
         end
